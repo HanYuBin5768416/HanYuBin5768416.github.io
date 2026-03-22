@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>프리미엄 금융 스토어</title>
+    <style>
+        /* 기본 셋팅*/
+        body { font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; margin: 0; background-color: #f5f6f7; color: #333; }
+        .container { max-width: 1200px; width: 95%; margin: 0 auto; background: #fff; padding: 20px;}
+        
+        /* 섹션 타이틀 */
+        .section-title { font-size: 22px; font-weight: bold; margin: 0 0 10px; }
+        .filter-bar { font-size: 13px; color: #666; margin-bottom: 20px; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; }
+
+        /* 상품 그리드*/
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px } /* 그리드 형식지정, 좌우 칸 자동지정, 칸최소 크기 지정, 남는공간 최대활용*/
+        .product-card { border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; position: relative; }
+                                                /* 모서리 둥글게         모서리 over 숨기기                      순위 태그의 기준점 설정*/
+        .product-card:hover { box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        
+        /* 순위 뱃지 */
+        .rank-badge { position: absolute; top: 0; left: 0; background: #5c5c5c98; color: #fff; padding: 2px 8px; font-size: 12px; font-weight: bold; }
+                    /* 기준점 위치로             세부위치                                                   자동크기조절            
+        /* 상품 이미지 */
+        .product-img { width: 100%; height: auto; aspect-ratio: 1/1; background: #eee; display: flex; align-items: center; justify-content: center; }
+        .product-img img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* 상품 정보 */
+        .product-info { border-top: 1px solid black; padding: 12px; }
+        .p-name { 
+            display: flex; /*정렬 판*/
+            align-items: center; /* 세로 (중앙)정렬*/
+            justify-content: flex-start;/* 가로(좌우) 정렬*/
+
+            font-size: 16px; 
+            font-weight: bold;
+            height: 36px;
+            overflow: hidden;
+            margin-bottom: 8px;
+            line-height: 1.4;  /*줄 위아래 간격*/
+            }
+        .p-yield { color: #ff3344; font-weight: bold; font-size: 15px; } /* 수익률 강조를 위한 글자*/         
+        .p-tag { display: inline-block; background: #f0f0f0; font-size: 11px; padding: 2px 5px; border-radius: 3px; margin-top: 5px; margin-right: 8px; }
+        
+        /* 상세페이지 */
+        .btn-detail {
+            display: inline-block; 
+            width: 100%;          
+            box-sizing: border-box; 
+            padding: 12px 0; 
+            margin-top: 10px;
+            background-color: #0055ff; 
+            color: #ffffff !important; 
+            text-decoration: none; 
+            text-align: center; 
+            font-weight: bold; 
+            border-radius: 4px; 
+            transition: 0.2s;
+        }
+        .btn-detail:hover {background-color: #0044cc;} /* 마우스 커서 올렸을때.*/
+    </style>
+</head>
+<body>
+
+<div class="container">
+   
+    <div class="section-title">베스트 상품 (TOP 10)</div>
+    <div class="filter-bar">📍 대한민국 기준 | 실시간 인기 순위</div>
+
+    <div class="product-grid">
+        <div class="product-card">
+            <div class="rank-badge">1</div>
+            <div class="product-img">
+                <img src="https://i.postimg.cc/cCH4k7FV/nasdaq100.jpg" >
+            </div>
+            <div class="product-info">
+                <div class="p-name">KODEX 미국나스닥100</div>
+                <div class="p-yield">최근 1년 수익률 +41.2%</div>
+                <div class="p-tag">무료 상담 및 분석</div><div class="p-tag">최고 인기</div>
+                
+                <a href="detail_1.html" target="content-frame" class="btn-detail" style="text-decoration: none; display: inline-block;">상품 상세보기</a>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="rank-badge">2</div>
+            <div class="product-img">
+                <img src="graph2.png" alt="KODEX 200 그래프">
+            </div>
+            <div class="product-info">
+                <div class="p-name">KODEX 200 (대한민국 대표 지수)</div>
+                <div class="p-yield">최근 1년 수익률 +12.8%</div>
+                <div class="p-tag">무료배송 상담</div>
+                <button class="btn-detail">상담 예약하기</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="rank-badge">3</div>
+            <div class="product-img">
+                <img src="graph2.png" alt="KODEX 200 그래프">
+            </div>
+            <div class="product-info">
+                <div class="p-name">KODEX 200 (대한민국 대표 지수)</div>
+                <div class="p-yield">최근 1년 수익률 +12.8%</div>
+                <div class="p-tag">무료배송 상담</div>
+                <button class="btn-detail">상담 예약하기</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="rank-badge">4</div>
+            <div class="product-img">
+                <img src="graph2.png" alt="KODEX 200 그래프">
+            </div>
+            <div class="product-info">
+                <div class="p-name">KODEX 200 (대한민국 대표 지수)</div>
+                <div class="p-yield">최근 1년 수익률 +12.8%</div>
+                <div class="p-tag">무료배송 상담</div>
+                <button class="btn-detail">상담 예약하기</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="rank-badge">5</div>
+            <div class="product-img">
+                <img src="graph2.png" alt="KODEX 200 그래프">
+            </div>
+            <div class="product-info">
+                <div class="p-name">KODEX 200 (대한민국 대표 지수)</div>
+                <div class="p-yield">최근 1년 수익률 +12.8%</div>
+                <div class="p-tag">무료배송 상담</div>
+                <button class="btn-detail">상담 예약하기</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="rank-badge">6</div>
+            <div class="product-img">
+                <img src="graph2.png" alt="KODEX 200 그래프">
+            </div>
+            <div class="product-info">
+                <div class="p-name">KODEX 200 (대한민국 대표 지수)</div>
+                <div class="p-yield">최근 1년 수익률 +12.8%</div>
+                <div class="p-tag">무료배송 상담</div>
+                <button class="btn-detail">상담 예약하기</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="rank-badge">7</div>
+            <div class="product-img">
+                <img src="graph2.png" alt="KODEX 200 그래프">
+            </div>
+            <div class="product-info">
+                <div class="p-name">KODEX 200 (대한민국 대표 지수)</div>
+                <div class="p-yield">최근 1년 수익률 +12.8%</div>
+                <div class="p-tag">무료배송 상담</div>
+                <button class="btn-detail">상담 예약하기</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="rank-badge">8</div>
+            <div class="product-img">
+                <img src="graph2.png" alt="KODEX 200 그래프">
+            </div>
+            <div class="product-info">
+                <div class="p-name">KODEX 200 (대한민국 대표 지수)</div>
+                <div class="p-yield">최근 1년 수익률 +12.8%</div>
+                <div class="p-tag">무료배송 상담</div>
+                <button class="btn-detail">상담 예약하기</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="rank-badge">9</div>
+            <div class="product-img">
+                <img src="graph2.png" alt="KODEX 200 그래프">
+            </div>
+            <div class="product-info">
+                <div class="p-name">KODEX 200 (대한민국 대표 지수)</div>
+                <div class="p-yield">최근 1년 수익률 +12.8%</div>
+                <div class="p-tag">무료배송 상담</div>
+                <button class="btn-detail">상담 예약하기</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="rank-badge">10</div>
+            <div class="product-img">
+                <img src="graph2.png" alt="KODEX 200 그래프">
+            </div>
+            <div class="product-info">
+                <div class="p-name">KODEX 200 (대한민국 대표 지수)</div>
+                <div class="p-yield">최근 1년 수익률 +12.8%</div>
+                <div class="p-tag">무료배송 상담</div>
+                <button class="btn-detail">상담 예약하기</button>
+            </div>
+        </div>
+
+        </div>
+</div>
+
+</body>
+</html>
