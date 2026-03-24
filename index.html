@@ -1,97 +1,110 @@
 <!DOCTYPE html>
-<html lang="ko"> /* 켈로그 같은 기업의 기업 근본 개요같은 부분이 강조 물건 판매 X , 
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>FINANCIAL STORE</title>
+    <title>Snack Craft</title>
     <style>
-        body { margin: 0; padding: 0; overflow: hidden; font-family: 'Apple SD Gothic Neo', sans-serif; background-color: #fff; }
-
-        /* 상단바 */
-        .header-wrapper { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 160px; /* 상단바 고정 절대적 위치 fixed*/
-            background: #fff; border-bottom: 1px solid #eeeeee; z-index: 1000; /* 레이어 순위 설정 z index*/
+        /* 1. 기본 설정: 여백 제거 및 폰트 통합 */
+        * { 
+            font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+            margin: 0; padding: 0; 
+            box-sizing: border-box;
         }
 
-        /* 실제 컨텐츠가 들어가는 구역 */
-        .header-content { 
-            max-width: 1280px;
-            margin: 0 auto; 
-            padding: 25px 20px 0 20px; 
+        /* 2. 상단바: 배경은 100%, z-index로 최상단 고정 */
+        .main-header {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 110px;
+            background-color: #002D72;
+            z-index: 5;
         }
 
-        .top-row { 
-            display: flex; 
-            justify-content: space-between; /* 로고는 왼쪽, 검색창은 오른쪽 끝으로 */
-            align-items: center; /*로고랑 검색창의 상하 정렬*/
-            margin-bottom: 25px;
+        .main-header table {
+            margin: 0 auto; /* 테이블을 무조건 가로 중앙에 배치 */
+        }
+    
+        .Logo {
+            vertical-align: middle;
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        .logo-suppt {
+            width: 30px;
+            height: 10px;
+            z-index: 10;
+        }
+        /* 3. 메뉴 링크 스타일 */
+        .menu-link, .sub-link { text-decoration: none; display: inline-block; }
+        .menu-link { color: white !important; font-size: 22px; font-weight: 700; margin: 0 25px; }
+        .sub-link { color: rgba(255, 255, 255, 0.7) !important; font-size: 14px; margin-left: 20px; }
+
+        /* 4. 비스듬한 배경: 이미지 태그가 화면 꽉 차게 설정 */
+        .hero-section {
+            position: fixed;
+            top: 110px; /* 헤더 바로 아래 붙임 */
+            width: 100%;
+            z-index: 5;
+            line-height: 0; /* 이미지 하단 미세 여백 제거 */
+            background-color: transparent !important;
+        }
+        .hero-section img {
+            width: 100%; height: auto;
         }
 
-        .logo { 
-            font-size: 28px; 
-            font-weight: 800; 
-            color: #0055ff; 
-            text-decoration: none; 
-            letter-spacing: -0.5px; /*로고 글씨 간격 줄이기*/
+        /* 5. 본문 영역: iframe 중앙 정렬 */
+        .main-content-area {
+            margin-top: 50px;
+            text-align: center;
+            width: 100%;
         }
 
-        /* 검색창 */
-        .search-bar { 
-            border: 2px solid #0055ff; 
-            padding: 8px 20px; 
-            border-radius: 25px; 
-            width: 350px; 
-            display: flex; /*정렬모드*/
-            justify-content: space-between; /*좌  우*/
-            align-items: center; /*상   하*/
-            font-size: 15px; 
-            color: #333; 
-        }
-
-        /* 카테고리 메뉴*/
-        nav { 
-            display: flex; 
-            gap: 25px; 
-            padding: 20px 0; 
-            font-size: 15px; 
-            font-weight: 500; 
-            color: #333;
-            border-top: 1px solid #f2f2f2;
-        }
-        nav span { cursor: pointer; } /*카테고리 부분에 마우스 올렸을때 반응*/
-        nav span:hover { color: #0055ff; }/*카테고리 부분에 마우스 올렸을때 반응*/
-
-        /* 아래 내용 iframe */
-        #content-frame { 
-            width: 100%; 
-            height: calc(100vh - 162px); 
-            margin-top: 162px; 
-            border: none; 
+        #mainFrame {
+            width: 100%;
+            height: 2500px;
+            border: none;
+            display: block;
+            margin: 0 auto; /*창 늘려도 중앙 유지  */
         }
     </style>
 </head>
 <body>
 
-    <div class="header-wrapper">
-        <div class="header-content">
-            <div class="top-row">
-                <a href="" target="content-frame" class="logo">FINANCIAL STORE</a>
-                <div class="search-bar">
-                    <span style="color:#999">추천 상품 검색</span>
-                    <span>🔍</span>
-                </div>
-            </div>
-            <nav>
-                <span onclick="document.getElementById('content-frame').src='list.html'">BEST 컬렉션</span> | 
-                <span>신규 상장</span> | 
-                <span>ISA계좌 전용</span> | 
-                <span>연금저축 전용</span> | 
-                <span>채권/금리</span> |
-                <span>고객 지원</span> | 
-            </nav>
-        </div>
-    </div>
+<header class="main-header">
+    <table width="1280" border="0" align="center" cellpadding="0" cellspacing="0" style="height: 110px; table-layout: fixed;">
+        <tr>
+            <td width="400" align="left" style="padding-left: 20px;">
+                <a href="" class="Logo">Snack Craft</a>
+            </td>
 
-    <iframe src="list.html" id="content-frame" name="content-frame"></iframe>
+            <td width="480" align="center">
+                <a href="" class="menu-link">회사 개요</a>
+                <a href="test3.html" class="menu-link" target="mainFrame">제품 라인업</a>
+                <a href="" class="menu-link">고객지원</a>
+            </td>
+
+            <td width="400" align="right" style="padding-right: 20px;">
+                <a href="#" class="sub-link">네이버 블로그</a>
+                <a href="#" class="sub-link">네이버 카페</a>
+                <a href="#" class="sub-link">티스토리</a>
+                <a href="#" class="sub-link">다음카페</a>
+            </td>
+        </tr>
+    </table>
+</header>
+
+<div class="hero-section">
+    <img src="https://i.postimg.cc/5Npxm2v7/back-(2).png" alt="배경">
+</div>
+<div class="logo-suppt">
+    <img src="">
+</div>
+
+<div class="main-content-area">
+    <iframe src="test2.html" id="mainFrame" name="mainFrame" scrolling="no"></iframe>
+</div>
 
 </body>
 </html>
