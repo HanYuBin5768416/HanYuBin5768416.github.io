@@ -2,53 +2,72 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>KODEX 상품 상세정보</title>
     <style>
-        /* 네이버 스토어 표준 규격 스타일 */
-        body { font-family: 'Apple SD Gothic Neo','Malgun Gothic', sans-serif; margin: 0; background-color: #fff; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        body { margin: 0; background-color: #ffffff; color: #333; font-family: sans-serif; }
+        .container { width: 1000px; margin: 150px auto; text-align: center; }
         
-        /* 상품 요약 정보 (규격화된 구역) */
-        .summary-section { display: flex; gap: 40px; margin: 40px 0; border-bottom: 1px solid #eee; padding-bottom: 40px; }
-        .product-main-img { width: 450px; height: 450px; background: #f9f9f9; border: 1px solid #c9c9c9; }
-        .info-box { flex: 1; }
-        .info-box h1 { font-size: 28px; margin-top: 0; }
-        .yield-badge { background: #ff3344; color: #fff; padding: 5px 10px; border-radius: 5px; font-weight: bold; }
+        /* 테이블 설정: 한 줄에 3개 고정 */
+        .snack-table { width: 100%; border-spacing: 20px 50px; table-layout: fixed; }
+        .snack-table td { vertical-align: top; }
 
-        /* 하단 상세 설명 (포토샵 이미지 들어갈 자리) */
-        .detail-desc { margin-top: 50px; text-align: center; }
-        .detail-desc img { width: 100%; max-width: 800px; }
+        /* 이미지 박스: 1:1 비율 */
+        .img-box { width: 100%; aspect-ratio: 1/1; background: #f4f4f4; border-radius: 10px; overflow: hidden; margin-bottom: 15px; }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* 하단 고정 상담 버튼 */
-        .fixed-footer { position: fixed; bottom: 0; left: 0; width: 100%; background: #fff; border-top: 1px solid #eee; padding: 15px 0; text-align: center; }
-        .btn-apply { width: 400px; height: 55px; background: #0055ff; color: #fff; border: none; font-size: 18px; font-weight: bold; cursor: pointer; border-radius: 5px; }
+        /* 제품명 버튼 */
+        .p-name { font-size: 18px; font-weight: bold; margin-bottom: 10px; }
+
+    /* 칸 전체를 감싸는 링크 */
+    .product-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    
+    /*테두리와 곡선 */
+    border: 1px solid #9c9c9c; 
+    border-radius: 15px;    /*둥글게 조절 */
+    overflow: hidden;       /* 내부 이미지가 튀어나오지 않게 깎아줌 */
+    padding: 15px;          /* 안쪽 여백 */
+    background-color: #fff;
+    transition: 0.3s;
+}
+
+    /* 마우스 올렸을 때 */
+    .product-link:hover .img-box {
+        transform: scale(1.02); /* 살짝 커지는 효과 */
+        transition: 0.2s;
+    }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="summary-section">
-        <img src="https://i.postimg.cc/cCH4k7FV/nasdaq100.jpg" class="product-main-img" alt="상품그래프">
-        
-        <div class="info-box">
-            <span class="yield-badge">BEST 상품</span>
-            <h1>KODEX 미국나스닥100</h1>
-            <p style="font-size: 24px; color: #ff3344; font-weight: bold;">최근 1년 수익률: 41.2%</p>
-            <hr>
-            <p style="color: #666; line-height: 1.6;">본 상품은 미국 나스닥 시장의 핵심 100개 종목에 투자하는 삼성자산운용의 대표 ETF입니다. 나무증권, 토스증권 등에서 즉시 매수 가능합니다.</p>
-        </div>
-    </div>
-
-    <div class="detail-desc">
-        <h3>[ 상품 상세 분석 리포트 ]</h3>
-        <img src="detail.png" alt="상세 설명 이미지">
-    </div>
+    <h1 style="font-size: 24px;">Snack Craft Line-up</h1>
+    
+    <table class="snack-table">
+        <tr>
+            <td>
+                <a href="detail_1.html" target="mainFrame" class="product-link">
+                    <div class="img-box">
+                        <img src="https://i.postimg.cc/3wVJGLGW/snack.png">
+                    </div>
+                    <div class="p-name">랑그리 초코샌드</div>
+                    <div style="font-size: 12px; color: #003366;">상세보기 ></div>
+                </a>
+            </td>
+            <td>
+                <div class="img-box"><img src="이미지주소"></div>
+                <div class="p-name">바삭 초코</div>
+                <a href="detail_2.html" target="mainFrame" class="btn-go">상세보기</a>
+            </td>
+            <td>
+                <div class="img-box"><img src="이미지주소"></div>
+                <div class="p-name">수제 캔디</div>
+                <a href="detail_3.html" target="mainFrame" class="btn-go">상세보기</a>
+            </td>
+        </tr>
+        </table>
 </div>
-
-<div class="fixed-footer">
-    <button class="btn-apply" onclick="alert('가입 상담 예약이 완료되었습니다!')">가입 상담 신청하기</button>
-</div>                              
-                                <!-- 팝업창 띄우기  -->
 
 </body>
 </html>
